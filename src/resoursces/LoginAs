@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tubes.tugasbesarpbo.LoginAs">
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="289.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="81.0" layoutY="261.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="126.0" style="-fx-background-radius: 20px;" text="Personal">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="ImagePersonal" fitHeight="147.0" fitWidth="147.0" layoutX="72.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../ImageAs/Personal.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="333.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="92.0" layoutY="257.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="126.0" style="-fx-background-radius: 20px;" text="Group">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="ImageGroup" fitHeight="222.0" fitWidth="211.0" layoutX="50.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../ImageAs/Group.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="-52.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login As" wrappingWidth="132.5367431640625">
+               <font>
+                  <Font name="Arial Bold Italic" size="27.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>
