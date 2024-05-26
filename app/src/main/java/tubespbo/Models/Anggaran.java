@@ -1,0 +1,50 @@
+package tubespbo.Models;
+
+// Kelas Anggaran
+public class Anggaran {
+    protected double totalAnggaranPokok;
+    protected double totalAnggaranSekunder;
+    protected double totalAnggaranTersier;
+    protected Pengguna pengguna;
+
+    public Anggaran(Pengguna pengguna, double totalAnggaranPokok, double totalAnggaranSekunder, double totalAnggaranTersier) {
+        this.pengguna = pengguna;
+        this.totalAnggaranPokok = totalAnggaranPokok;
+        this.totalAnggaranSekunder = totalAnggaranSekunder;
+        this.totalAnggaranTersier = totalAnggaranTersier;
+    }
+
+    // Metode getter
+    public Pengguna getPengguna() {
+        return this.pengguna;
+    }
+
+    public double getTotalAnggaranPokok() {
+        return totalAnggaranPokok;
+    }
+
+    public double getTotalAnggaranSekunder() {
+        return totalAnggaranSekunder;
+    }
+
+    public double getTotalAnggaranTersier() {
+        return totalAnggaranTersier;
+    }
+
+    // Metode setter
+    public void setTotalAnggaranPokok(double totalAnggaranPokok) {
+        this.totalAnggaranPokok = totalAnggaranPokok;
+    }
+
+    public void setTotalAnggaranSekunder(double totalAnggaranSekunder) {
+        this.totalAnggaranSekunder = totalAnggaranSekunder;
+    }
+
+    public void setTotalAnggaranTersier(double totalAnggaranTersier) {
+        this.totalAnggaranTersier = totalAnggaranTersier;
+    }
+
+    public double totalAnggaran() {
+        return totalAnggaranPokok + totalAnggaranSekunder + totalAnggaranTersier;
+    }
+}
