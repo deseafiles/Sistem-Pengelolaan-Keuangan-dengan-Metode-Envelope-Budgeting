@@ -1,29 +1,22 @@
 package tubespbo;
 
-import tubespbo.Util.Koneksi;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-import java.sql.Connection;
-import java.sql.SQLException;
+public class App extends Application {
 
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+        primaryStage.setTitle("Dompet");
+        primaryStage.setScene(new Scene(root, 400, 300));
+        primaryStage.show();
+    }
 
-public class App {
     public static void main(String[] args) {
-        Connection connection = null;
-        try {
-            Koneksi koneksi = new Koneksi();
-            connection = koneksi.getConnection();
-
-            if (Koneksi.isConnected(connection)) {
-                System.out.println("Koneksi ke database berhasil.");
-            } else {
-                System.out.println("Koneksi ke database gagal.");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            Koneksi.close(connection);
-        }
-
+        launch(args);
     }
 }
-

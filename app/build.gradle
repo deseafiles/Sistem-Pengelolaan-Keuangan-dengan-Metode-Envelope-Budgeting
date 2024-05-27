@@ -25,6 +25,8 @@ dependencies {
     implementation 'com.google.guava:guava:32.1.1-jre'
 
     implementation 'org.postgresql:postgresql:42.7.3'
+
+    implementation 'org.openjfx:javafx-fxml:17'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
