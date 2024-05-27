@@ -1,4 +1,5 @@
-import tubespbo.Models.*;
+package tubespbo;
+
 import tubespbo.Util.Koneksi;
 
 import java.sql.Connection;
