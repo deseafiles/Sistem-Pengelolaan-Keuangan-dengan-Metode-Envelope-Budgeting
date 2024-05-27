@@ -3,7 +3,6 @@ package tubespbo.Models;
 // Kelas Prioritas
 public class Prioritas {
     private Pemasukan pemasukan;
-
     private final double persenPokok = 50.0;
     private final double persenSekunder = 35.0;
     private final double persenTersier = 15.0;

@@ -1,39 +1,28 @@
-package tubespbo;
-
 import tubespbo.Models.*;
+import tubespbo.Util.Koneksi;
 
-import java.time.LocalDate;
-import java.util.Scanner;
+import java.sql.Connection;
+import java.sql.SQLException;
+
 
 public class App {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        // Membuat pengguna
+        Connection connection = null;
+        try {
+            Koneksi koneksi = new Koneksi();
+            connection = koneksi.getConnection();
 
-        while(True) {
-
-
+            if (Koneksi.isConnected(connection)) {
+                System.out.println("Koneksi ke database berhasil.");
+            } else {
+                System.out.println("Koneksi ke database gagal.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Koneksi.close(connection);
         }
 
-        Pengguna pengguna = new Pengguna("John Doe");
-
-        // Membuat pemasukan
-        LocalDate tanggalMasuk = LocalDate.now();
-        Pemasukan pemasukan = new Pemasukan(pengguna, 5000, 3000, 2000, 10000, "Gaji", tanggalMasuk);
-
-        // Membuat prioritas
-        Prioritas prioritas = new Prioritas(pemasukan);
-
-        // Menambahkan pengeluaran
-        LocalDate tanggalKeluar = LocalDate.now();
-        Pengeluaran pengeluaran = new Pengeluaran(pengguna, 5000, 3000, 2000, "pokok", tanggalKeluar, 2000);
-        prioritas.addPengeluaranPrioritas(pengeluaran);
-
-        // Mengecek total anggaran setelah pengeluaran
-        double totalAnggaran = pemasukan.totalAnggaran();
-
-        System.out.println(pemasukan);
-        System.out.println(pengeluaran);
-        System.out.println("Total anggaran setelah pengeluaran: " + totalAnggaran);
     }
 }
+

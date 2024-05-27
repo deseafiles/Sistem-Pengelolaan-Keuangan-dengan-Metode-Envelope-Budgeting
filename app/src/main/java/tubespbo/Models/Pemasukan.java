@@ -1,14 +1,15 @@
 package tubespbo.Models;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 // Kelas Pemasukan
 public class Pemasukan extends Anggaran {
     private double uangPemasukan;
     private String sumber;
-    private LocalDate tanggalMasuk;
+    private Date tanggalMasuk;
 
-    public Pemasukan(Pengguna pengguna, double totalAnggaranPokok, double totalAnggaranSekunder, double totalAnggaranTersier, double uangPemasukan, String sumber, LocalDate tanggalMasuk) {
+
+    public Pemasukan( Pengguna pengguna, double totalAnggaranPokok, double totalAnggaranSekunder, double totalAnggaranTersier, double uangPemasukan, String sumber, Date tanggalMasuk) {
         super(pengguna, totalAnggaranPokok, totalAnggaranSekunder, totalAnggaranTersier);
         this.tanggalMasuk = tanggalMasuk;
         this.uangPemasukan = uangPemasukan;
@@ -16,8 +17,10 @@ public class Pemasukan extends Anggaran {
     }
 
     // Metode getter
-    public LocalDate getTanggalMasuk() {
-        return this.tanggalMasuk;
+
+
+    public Date getTanggalMasuk() {
+        return tanggalMasuk;
     }
 
     public double getUangPemasukan() {
@@ -29,7 +32,7 @@ public class Pemasukan extends Anggaran {
     }
 
     // Metode setter
-    public void setTanggalMasuk(LocalDate tanggalMasuk) {
+    public void setTanggalMasuk(Date tanggalMasuk) {
         this.tanggalMasuk = tanggalMasuk;
     }
 

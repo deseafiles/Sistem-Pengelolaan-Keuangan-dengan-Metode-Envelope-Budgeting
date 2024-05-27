@@ -1,10 +1,9 @@
 package tubespbo.Util;
 
 import java.sql.Connection;
-import java.sql.Statement;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+import java.sql.Statement;
 
 public class Koneksi {
 
@@ -13,7 +12,7 @@ public class Koneksi {
     private static final String PASSWORD = "root";  // Ganti dengan password database Anda
 
     // Metode untuk mendapatkan koneksi ke database
-    public Connection getConnection() throws SQLException {
+    public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
@@ -43,5 +42,14 @@ public class Koneksi {
             }
         }
     }
-}
 
+    // Metode untuk melakukan pengecekan koneksi
+    public static boolean isConnected(Connection connection) {
+        try {
+            return connection != null && !connection.isClosed();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+}

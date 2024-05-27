@@ -1,14 +1,16 @@
 package tubespbo.Models;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 // Kelas Pengeluaran
 public class Pengeluaran extends Anggaran {
-    private LocalDate tanggalKeluar;
+    private Date tanggalKeluar;
     private double uangPengeluaran;
     private String kategori;
 
-    public Pengeluaran(Pengguna pengguna, double totalAnggaranPokok, double totalAnggaranSekunder, double totalAnggaranTersier, String kategori, LocalDate tanggalKeluar, double uangPengeluaran) {
+
+    public Pengeluaran(Pengguna pengguna, double totalAnggaranPokok, double totalAnggaranSekunder, double totalAnggaranTersier, double uangPengeluaran, String kategori, Date tanggalKeluar) {
         super(pengguna, totalAnggaranPokok, totalAnggaranSekunder, totalAnggaranTersier);
         this.uangPengeluaran = uangPengeluaran;
         this.tanggalKeluar = tanggalKeluar;
@@ -16,7 +18,7 @@ public class Pengeluaran extends Anggaran {
     }
 
     // Metode getter
-    public LocalDate getTanggalKeluar() {
+    public Date getTanggalKeluar() {
         return tanggalKeluar;
     }
 
@@ -29,7 +31,7 @@ public class Pengeluaran extends Anggaran {
     }
 
     // Metode setter
-    public void setTanggalKeluar(LocalDate tanggalKeluar) {
+    public void setTanggalKeluar(Date tanggalKeluar) {
         this.tanggalKeluar = tanggalKeluar;
     }
 
