@@ -21,8 +21,7 @@ public class PemasukanDao {
 
     public List<Pemasukan> getAllPemasukan() throws SQLException {
         List<Pemasukan> pemasukanList = new ArrayList<>();
-        String query = "SELECT nim, total_anggaran_pokok, total_anggaran_sekunder, " +
-                "total_anggaran_tersier, uang_pemasukan, sumber, tanggal_masuk " +
+        String query = "SELECT nim, uang_pemasukan, sumber, tanggal_masuk " +
                 "FROM public.anggaran";
 
         try (Connection conn = koneksi.getConnection();
@@ -36,9 +35,6 @@ public class PemasukanDao {
                 if (pengguna != null) {
                     Pemasukan pemasukan = new Pemasukan(
                             pengguna,
-                            rs.getDouble("total_anggaran_pokok"),
-                            rs.getDouble("total_anggaran_sekunder"),
-                            rs.getDouble("total_anggaran_tersier"),
                             rs.getDouble("uang_pemasukan"),
                             rs.getString("sumber"),
                             rs.getDate("tanggal_masuk")
@@ -55,7 +51,7 @@ public class PemasukanDao {
     }
 
     public void tambahPemasukanAnggaran(Pemasukan pemasukan) throws SQLException {
-        String query = "INSERT INTO anggaran (pengguna_nim, total_anggaran_pokok, total_anggaran_sekunder, total_anggaran_tersier, uang_pemasukan, sumber, tanggal_masuk) " +
+        String query = "INSERT INTO anggaran (pengguna_nim, uang_pemasukan, sumber, tanggal_masuk) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = Koneksi.getConnection();
@@ -63,12 +59,9 @@ public class PemasukanDao {
 
             // Set parameter-parameter yang sesuai dengan nilai dari objek Pemasukan
             stmt.setInt(1, pemasukan.getPengguna().getNim());
-            stmt.setDouble(2, pemasukan.getTotalAnggaranPokok());
-            stmt.setDouble(3, pemasukan.getTotalAnggaranSekunder());
-            stmt.setDouble(4, pemasukan.getTotalAnggaranTersier());
-            stmt.setDouble(5, pemasukan.getUangPemasukan());
-            stmt.setString(6, pemasukan.getSumber());
-            stmt.setDate(7, new java.sql.Date(pemasukan.getTanggalMasuk().getTime()));
+            stmt.setDouble(2, pemasukan.getUangPemasukan());
+            stmt.setString(3, pemasukan.getSumber());
+            stmt.setDate(4, new java.sql.Date(pemasukan.getTanggalMasuk().getTime()));
 
             // Jalankan pernyataan SQL untuk menambahkan data ke database
             stmt.executeUpdate();

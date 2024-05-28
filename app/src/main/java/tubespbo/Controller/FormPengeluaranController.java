@@ -36,7 +36,7 @@ public class FormPengeluaranController {
         Koneksi koneksi = new Koneksi();
         this.pengeluaranDao = new PengeluaranDao(koneksi);
     }
-
+    //ketika menekan tombol
     @FXML
     private void handleSave() {
         try {
@@ -47,13 +47,13 @@ public class FormPengeluaranController {
             String kategoriPrioritas = kategoriPrioritasComboBox.getValue();
 
             Pengguna pengguna = pengeluaranDao.getPenggunaDao().getPenggunaByNim(nim);
-
+            //mencari apakah pengguna dengan nim terkait terdaftar di database pengguna, jika tidak baris ini dijalankan
             if (pengguna == null) {
                 throw new Exception("Pengguna dengan NIM " + nim + " tidak ditemukan.");
             }
 
             Pengeluaran pengeluaran = new Pengeluaran(pengguna, uangPengeluaran, kategori, Date.valueOf(tanggalKeluar));
-
+            //switch case jika pengguna memilih jenis prioritas maka akan mengurangi uang di jenis pengeluaran terkait
             switch (kategoriPrioritas) {
                 case "Pokok":
                     pengeluaran.addPengeluaranPokok();
@@ -67,7 +67,7 @@ public class FormPengeluaranController {
                 default:
                     throw new IllegalArgumentException("Kategori prioritas tidak valid");
             }
-
+            //jika semua berhasil dijalankan, maka akan menambah data di database postgresql dengan table pengeluaran
             pengeluaranDao.tambahPengeluaranAnggaran(pengeluaran);
             System.out.println(pengeluaran);
         } catch (Exception e) {

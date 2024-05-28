@@ -9,8 +9,8 @@ public class Pemasukan extends Anggaran {
     private Date tanggalMasuk;
 
 
-    public Pemasukan( Pengguna pengguna, double totalAnggaranPokok, double totalAnggaranSekunder, double totalAnggaranTersier, double uangPemasukan, String sumber, Date tanggalMasuk) {
-        super(pengguna, totalAnggaranPokok, totalAnggaranSekunder, totalAnggaranTersier);
+    public Pemasukan( Pengguna pengguna, double uangPemasukan, String sumber, Date tanggalMasuk) {
+        super(pengguna, Anggaran.getTotalAnggaranPokok(), Anggaran.getTotalAnggaranSekunder(), Anggaran.getTotalAnggaranTersier());
         this.tanggalMasuk = tanggalMasuk;
         this.uangPemasukan = uangPemasukan;
         this.sumber = sumber;

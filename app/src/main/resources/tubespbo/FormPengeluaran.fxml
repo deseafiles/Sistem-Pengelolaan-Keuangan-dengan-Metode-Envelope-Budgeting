@@ -26,7 +26,7 @@
           <DatePicker fx:id="tanggalKeluarPicker" layoutX="-2.0" layoutY="64.0" />
       
           <Label layoutY="47.0" text="Tanggal Keluar :" />
-      
+
           <ComboBox fx:id="kategoriPrioritasComboBox" layoutY="22.0">
               <items>
                   <FXCollections fx:factory="observableArrayList">
