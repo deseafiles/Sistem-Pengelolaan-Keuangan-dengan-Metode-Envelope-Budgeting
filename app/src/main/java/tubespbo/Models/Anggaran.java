@@ -2,9 +2,9 @@ package tubespbo.Models;
 
 // Kelas Anggaran
 public class Anggaran {
-    protected double totalAnggaranPokok;
-    protected double totalAnggaranSekunder;
-    protected double totalAnggaranTersier;
+    protected static double totalAnggaranPokok;
+    protected static double totalAnggaranSekunder;
+    protected static double totalAnggaranTersier;
     protected Pengguna pengguna;
 
     public Anggaran(Pengguna pengguna, double totalAnggaranPokok, double totalAnggaranSekunder, double totalAnggaranTersier) {
@@ -16,18 +16,18 @@ public class Anggaran {
 
     // Metode getter
     public Pengguna getPengguna() {
-        return this.pengguna;
+        return pengguna;
     }
 
-    public double getTotalAnggaranPokok() {
+    public static double getTotalAnggaranPokok() {
         return totalAnggaranPokok;
     }
 
-    public double getTotalAnggaranSekunder() {
+    public static double getTotalAnggaranSekunder() {
         return totalAnggaranSekunder;
     }
 
-    public double getTotalAnggaranTersier() {
+    public static double getTotalAnggaranTersier() {
         return totalAnggaranTersier;
     }
 

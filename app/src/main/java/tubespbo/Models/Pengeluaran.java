@@ -1,7 +1,6 @@
 package tubespbo.Models;
 
 import java.sql.Date;
-import java.time.LocalDate;
 
 // Kelas Pengeluaran
 public class Pengeluaran extends Anggaran {
@@ -9,9 +8,8 @@ public class Pengeluaran extends Anggaran {
     private double uangPengeluaran;
     private String kategori;
 
-
-    public Pengeluaran(Pengguna pengguna, double totalAnggaranPokok, double totalAnggaranSekunder, double totalAnggaranTersier, double uangPengeluaran, String kategori, Date tanggalKeluar) {
-        super(pengguna, totalAnggaranPokok, totalAnggaranSekunder, totalAnggaranTersier);
+    public Pengeluaran(Pengguna pengguna, double uangPengeluaran, String kategori, Date tanggalKeluar) {
+        super(pengguna, Anggaran.getTotalAnggaranPokok(), Anggaran.getTotalAnggaranSekunder(), Anggaran.getTotalAnggaranTersier());
         this.uangPengeluaran = uangPengeluaran;
         this.tanggalKeluar = tanggalKeluar;
         this.kategori = kategori;
@@ -45,31 +43,32 @@ public class Pengeluaran extends Anggaran {
 
     // Metode untuk mengurangi anggaran sesuai kategori
     public double addPengeluaranPokok() {
-        if (uangPengeluaran > totalAnggaranPokok) {
+        if (uangPengeluaran > getTotalAnggaranPokok()) {
             throw new IllegalArgumentException("Jumlah pengeluaran pokok melebihi anggaran pokok");
         }
-        this.totalAnggaranPokok -= this.uangPengeluaran;
-        return this.totalAnggaran();
+        setTotalAnggaranPokok(getTotalAnggaranPokok() - uangPengeluaran);
+        return totalAnggaran();
     }
 
+
     public double addPengeluaranSekunder() {
-        if (uangPengeluaran > totalAnggaranSekunder) {
+        if (uangPengeluaran > getTotalAnggaranSekunder()) {
             throw new IllegalArgumentException("Jumlah pengeluaran sekunder melebihi anggaran sekunder");
         }
-        this.totalAnggaranSekunder -= this.uangPengeluaran;
-        return this.totalAnggaran();
+        setTotalAnggaranSekunder(getTotalAnggaranSekunder() - uangPengeluaran);
+        return totalAnggaran();
     }
 
     public double addPengeluaranTersier() {
-        if (uangPengeluaran > totalAnggaranTersier) {
+        if (uangPengeluaran > getTotalAnggaranTersier()) {
             throw new IllegalArgumentException("Jumlah pengeluaran tersier melebihi anggaran tersier");
         }
-        this.totalAnggaranTersier -= this.uangPengeluaran;
-        return this.totalAnggaran();
+        setTotalAnggaranTersier(getTotalAnggaranTersier() - uangPengeluaran);
+        return totalAnggaran();
     }
 
     @Override
     public String toString() {
-        return super.getPengguna().getNama() + " telah menambah pengeluaran!";
+        return getPengguna().getNama() + " telah menambah pengeluaran!";
     }
 }

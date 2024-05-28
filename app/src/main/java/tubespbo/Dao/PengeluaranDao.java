@@ -17,9 +17,13 @@ public class PengeluaranDao {
         this.penggunaDao = new PenggunaDao(koneksi); // Inisialisasi PenggunaDao
     }
 
+    public PenggunaDao getPenggunaDao() {
+        return penggunaDao;
+    }
+
     public List<Pengeluaran> getAllPengeluaran() throws SQLException {
-        List<Pengeluaran> pemasukanList = new ArrayList<>();
-        String query = "SELECT nim, total_anggaran_pokok, total_anggaran_sekunder, total_anggaran_tersier, uang_pengeluaran, kategori, tanggal_keluar FROM public.pengeluaran";
+        List<Pengeluaran> pengeluaranList = new ArrayList<>();
+        String query = "SELECT nim, uang_pengeluaran, kategori, tanggal_keluar FROM public.pengeluaran";
 
         try (Connection conn = koneksi.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query);
@@ -32,14 +36,11 @@ public class PengeluaranDao {
                 if (pengguna != null) {
                     Pengeluaran pengeluaran = new Pengeluaran(
                             pengguna,
-                            rs.getDouble("total_anggaran_pokok"),
-                            rs.getDouble("total_anggaran_sekunder"),
-                            rs.getDouble("total_anggaran_tersier"),
                             rs.getDouble("uang_pengeluaran"),
                             rs.getString("kategori"),
-                            rs.getDate("tanggal_masuk")
+                            rs.getDate("tanggal_keluar")
                     );
-                    pemasukanList.add(pengeluaran);
+                    pengeluaranList.add(pengeluaran);
                 }
             }
         } catch (SQLException e) {
@@ -47,23 +48,20 @@ public class PengeluaranDao {
             throw e;
         }
 
-        return pemasukanList;
+        return pengeluaranList;
     }
 
     public void tambahPengeluaranAnggaran(Pengeluaran pengeluaran) throws SQLException {
-        String query = "INSERT INTO public.pengeluaran( nim, total_anggaran_pokok, total_anggaran_sekunder, total_anggaran_tersier, uang_pengeluaran, kategori, tanggal_keluar) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO public.pengeluaran(nim, uang_pengeluaran, kategori, tanggal_keluar) VALUES (?, ?, ?, ?)";
 
-        try (Connection conn = Koneksi.getConnection();
+        try (Connection conn = koneksi.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
 
-            // Set parameter-parameter yang sesuai dengan nilai dari objek Pemasukan
+            // Set parameter-parameter yang sesuai dengan nilai dari objek Pengeluaran
             stmt.setInt(1, pengeluaran.getPengguna().getNim());
-            stmt.setDouble(2, pengeluaran.getTotalAnggaranPokok());
-            stmt.setDouble(3, pengeluaran.getTotalAnggaranSekunder());
-            stmt.setDouble(4, pengeluaran.getTotalAnggaranTersier());
-            stmt.setDouble(5, pengeluaran.getUangPengeluaran());
-            stmt.setString(6, pengeluaran.getKategori());
-            stmt.setDate(7, new java.sql.Date(pengeluaran.getTanggalKeluar().getTime()));
+            stmt.setDouble(2, pengeluaran.getUangPengeluaran());
+            stmt.setString(3, pengeluaran.getKategori());
+            stmt.setDate(4, new java.sql.Date(pengeluaran.getTanggalKeluar().getTime()));
             // Jalankan pernyataan SQL untuk menambahkan data ke database
             stmt.executeUpdate();
         } catch (SQLException e) {
