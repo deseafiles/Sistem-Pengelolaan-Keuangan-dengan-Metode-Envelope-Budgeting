@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="246.0" prefWidth="258.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tubespbo.Controller.FormPemasukanController">
+    <Label text="NIM" />
+    <TextField fx:id="nimField" />
+
+    <Label text="Uang Pengeluaran" />
+    <TextField fx:id="uangPengeluaranField" />
+
+    <Label text="Sumber" />
+    <TextField fx:id="SumberField" prefHeight="25.0" prefWidth="136.0" />
+    <AnchorPane prefHeight="129.0" prefWidth="258.0">
+        <children>
+
+            <Button layoutX="101.0" layoutY="72.0" onAction="#handleSave" text="Simpan" />
+            <DatePicker fx:id="tanggalMasukPicker" layoutX="-3.0" layoutY="22.0" />
+
+            <Label layoutX="-2.0" layoutY="5.0" text="Tanggal Masuk :" />
+        </children>
+    </AnchorPane>
+</VBox>
