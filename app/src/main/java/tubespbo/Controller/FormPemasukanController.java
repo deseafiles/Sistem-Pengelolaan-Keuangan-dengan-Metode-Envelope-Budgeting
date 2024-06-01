@@ -41,6 +41,7 @@ public class FormPemasukanController {
             String sumber = sumberField.getText();
             LocalDate tanggalMasuk = tanggalMasukPicker.getValue();
 
+            // Mengakses PenggunaDao melalui PemasukanDao
             Pengguna pengguna = pemasukanDao.getPenggunaDao().getPenggunaByNim(nim);
 
             if (pengguna == null) {

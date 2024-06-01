@@ -11,11 +11,11 @@
     <Label text="NIM" />
     <TextField fx:id="nimField" />
 
-    <Label text="Uang Pengeluaran" />
-    <TextField fx:id="uangPengeluaranField" />
+    <Label text="Uang Pemasukan" />
+    <TextField fx:id="uangPemasukanField" />
 
-    <Label text="Sumber" />
-    <TextField fx:id="SumberField" prefHeight="25.0" prefWidth="136.0" />
+    <Label text="sumber" />
+    <TextField fx:id="sumberField" prefHeight="25.0" prefWidth="136.0" />
     <AnchorPane prefHeight="129.0" prefWidth="258.0">
         <children>
 
