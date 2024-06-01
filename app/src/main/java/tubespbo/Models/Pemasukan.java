@@ -2,25 +2,16 @@ package tubespbo.Models;
 
 import java.sql.Date;
 
-// Kelas Pemasukan
 public class Pemasukan extends Anggaran {
     private double uangPemasukan;
     private String sumber;
     private Date tanggalMasuk;
 
-
-    public Pemasukan( Pengguna pengguna, double uangPemasukan, String sumber, Date tanggalMasuk) {
-        super(pengguna, Anggaran.getTotalAnggaranPokok(), Anggaran.getTotalAnggaranSekunder(), Anggaran.getTotalAnggaranTersier());
-        this.tanggalMasuk = tanggalMasuk;
+    public Pemasukan(Pengguna pengguna, double totalAnggaranPokok, double totalAnggaranSekunder, double totalAnggaranTersier, double uangPemasukan, String sumber, Date tanggalMasuk) {
+        super(pengguna, totalAnggaranPokok, totalAnggaranSekunder, totalAnggaranTersier);
         this.uangPemasukan = uangPemasukan;
         this.sumber = sumber;
-    }
-
-    // Metode getter
-
-
-    public Date getTanggalMasuk() {
-        return tanggalMasuk;
+        this.tanggalMasuk = tanggalMasuk;
     }
 
     public double getUangPemasukan() {
@@ -31,7 +22,10 @@ public class Pemasukan extends Anggaran {
         return this.sumber;
     }
 
-    // Metode setter
+    public Date getTanggalMasuk() {
+        return tanggalMasuk;
+    }
+
     public void setTanggalMasuk(Date tanggalMasuk) {
         this.tanggalMasuk = tanggalMasuk;
     }
