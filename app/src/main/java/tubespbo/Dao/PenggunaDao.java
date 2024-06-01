@@ -9,6 +9,7 @@ import java.sql.SQLException;
 
 public class PenggunaDao {
     private Koneksi koneksi;
+    private Pengguna pengguna;
 
     public PenggunaDao(Koneksi koneksi) {
         this.koneksi = koneksi;
@@ -30,6 +31,24 @@ public class PenggunaDao {
         } catch (SQLException e) {
             e.printStackTrace();
             throw e;
+        }
+
+        public void tambahPengguna(Pengguna pengguna) throws SQLException {
+            String query = "INSERT INTO public.pengguna(nim, nama, jenis_kelamin) VALUES (?, ?, ?)";
+
+            try (Connection conn = Koneksi.getConnection();
+                 PreparedStatement stmt = conn.prepareStatement(query)) {
+
+                // Set parameter-parameter yang sesuai dengan nilai dari objek Pengeluaran
+                stmt.setString(1, pengguna.getNama());
+                stmt.setInt(2, pengguna.getNim());
+                stmt.setString(3, pengguna.getJenisKelamin());
+                // Jalankan pernyataan SQL untuk menambahkan data ke database
+                stmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+                throw e;
+            }
         }
     }
 }
