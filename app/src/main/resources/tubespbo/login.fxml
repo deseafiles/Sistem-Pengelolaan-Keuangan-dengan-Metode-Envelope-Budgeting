@@ -12,39 +12,39 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tubes.tugasbesarpbo.Login">
-   <right>
-      <AnchorPane prefHeight="400.0" prefWidth="298.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fx:id="Background" fitHeight="400.0" fitWidth="304.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../Image/Background.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-   </right>
-   <center>
-      <AnchorPane prefHeight="400.0" prefWidth="305.0" style="-fx-background-color: #3276ba;" BorderPane.alignment="CENTER">
-         <children>
-            <TextField fx:id="NamaField" layoutX="46.0" layoutY="139.0" promptText="Nama" style="-fx-background-radius: 20px;" />
-            <ComboBox fx:id="comboBox" editable="true" layoutX="45.0" layoutY="237.0" prefWidth="150.0" promptText="Jenis Kelamin">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tubespbo.Controller.Login">
+    <right>
+        <AnchorPane prefHeight="400.0" prefWidth="298.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fx:id="Background" fitHeight="400.0" fitWidth="304.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Background.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+    </right>
+    <center>
+        <AnchorPane prefHeight="400.0" prefWidth="305.0" style="-fx-background-color: #3276ba;" BorderPane.alignment="CENTER">
+            <children>
+                <TextField fx:id="NamaField" layoutX="46.0" layoutY="139.0" promptText="Nama" style="-fx-background-radius: 20px;" />
+                <ComboBox fx:id="comboBox" editable="true" layoutX="45.0" layoutY="237.0" prefWidth="150.0" promptText="Jenis Kelamin">
                     <items>
-                       <FXCollections fx:factory="observableArrayList">
-                          <String fx:value="Laki-laki" />
-                          <String fx:value="Perempuan" />
-                       </FXCollections>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Laki-laki" />
+                            <String fx:value="Perempuan" />
+                        </FXCollections>
                     </items>
-            </ComboBox>
-            <Label fx:id="DompetText" layoutX="35.0" layoutY="35.0" prefHeight="53.0" prefWidth="172.0" text="DOMPET">
-               <font>
-                  <Font name="Arial Bold Italic" size="37.0" />
-               </font>
-            </Label>
-            <Button fx:id="LoginButton" layoutX="71.0" layoutY="312.0" mnemonicParsing="false" onAction="#userLogin" prefHeight="34.0" prefWidth="100.0" style="-fx-background-radius: 20px; -fx-border-radius: 20px; -fx-background-color: #1EAEE3; -fx-border-color: #000000;" text="Login" />
-            <Label fx:id="wrongLogin" layoutX="108.0" layoutY="99.0" textFill="RED" />
-            <TextField fx:id="NIMField" layoutX="46.0" layoutY="187.0" promptText="NIM" style="-fx-background-radius: 20px;" />
-         </children>
-      </AnchorPane>
-   </center>
+                </ComboBox>
+                <Label fx:id="DompetText" layoutX="35.0" layoutY="35.0" prefHeight="53.0" prefWidth="172.0" text="DOMPET">
+                    <font>
+                        <Font name="Arial Bold Italic" size="37.0" />
+                    </font>
+                </Label>
+                <Button fx:id="LoginButton" layoutX="71.0" layoutY="312.0" mnemonicParsing="false" onAction="#userLogin" prefHeight="34.0" prefWidth="100.0" style="-fx-background-radius: 20px; -fx-border-radius: 20px; -fx-background-color: #1EAEE3; -fx-border-color: #000000;" text="Login" />
+                <Label fx:id="wrongLogin" layoutX="108.0" layoutY="99.0" textFill="RED" />
+                <TextField fx:id="NIMField" layoutX="46.0" layoutY="187.0" promptText="NIM" style="-fx-background-radius: 20px;" />
+            </children>
+        </AnchorPane>
+    </center>
 </BorderPane>
