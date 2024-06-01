@@ -28,7 +28,7 @@ public class PemasukanDao {
         List<Pemasukan> pemasukanList = new ArrayList<>();
         String query = "SELECT nim, total_anggaran_pokok, total_anggaran_sekunder, " +
                 "total_anggaran_tersier, uang_pemasukan, sumber, tanggal_masuk " +
-                "FROM public.anggaran";
+                "FROM public.pemasukan";
 
         try (Connection conn = koneksi.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query);
@@ -60,7 +60,7 @@ public class PemasukanDao {
     }
 
     public void tambahPemasukanAnggaran(Pemasukan pemasukan) throws SQLException {
-        String query = "INSERT INTO anggaran (nim, total_anggaran_pokok, total_anggaran_sekunder, total_anggaran_tersier, uang_pemasukan, sumber, tanggal_masuk) " +
+        String query = "INSERT INTO pemasukan (nim, total_anggaran_pokok, total_anggaran_sekunder, total_anggaran_tersier, uang_pemasukan, sumber, tanggal_masuk) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = koneksi.getConnection();
