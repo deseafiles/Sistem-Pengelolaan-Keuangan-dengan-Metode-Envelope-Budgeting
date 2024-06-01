@@ -1,7 +1,7 @@
 
 
 # SISTEM PENGELOLAAN KEUANGAN DENGAN METODE ENVELOPE BUDGETING
-## Pengenalan
+## Overview
 This is the final assignment for the OOP. This program serves as a financial tracker that categorizes expenses into 'primary,' 'secondary,' and 'tertiary'.
 
 ## Technologies Used
