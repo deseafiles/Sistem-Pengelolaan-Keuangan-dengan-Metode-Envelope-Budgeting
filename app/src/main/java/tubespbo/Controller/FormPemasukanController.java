@@ -7,6 +7,7 @@ import javafx.scene.control.DatePicker;
 import tubespbo.Dao.PemasukanDao;
 import tubespbo.Models.Pemasukan;
 import tubespbo.Models.Pengguna;
+import tubespbo.Models.Prioritas;
 import tubespbo.Util.Koneksi;
 
 import java.sql.Date;
@@ -41,15 +42,26 @@ public class FormPemasukanController {
             String sumber = sumberField.getText();
             LocalDate tanggalMasuk = tanggalMasukPicker.getValue();
 
-            // Mengakses PenggunaDao melalui PemasukanDao
             Pengguna pengguna = pemasukanDao.getPenggunaDao().getPenggunaByNim(nim);
 
             if (pengguna == null) {
                 throw new Exception("Pengguna dengan NIM " + nim + " tidak ditemukan.");
             }
 
-            Pemasukan pemasukan = new Pemasukan(pengguna, uangPemasukan, sumber, Date.valueOf(tanggalMasuk));
-            pemasukanDao.tambahPemasukanAnggaran(pemasukan);
+            // Initialize Pemasukan object with appropriate values
+            Pemasukan pemasukan = new Pemasukan(
+                    pengguna,
+                    pengguna.getTotalAnggaranPokok(),
+                    pengguna.getTotalAnggaranSekunder(),
+                    pengguna.getTotalAnggaranTersier(),
+                    uangPemasukan,
+                    sumber,
+                    Date.valueOf(tanggalMasuk)
+            );
+
+            Prioritas prioritas = new Prioritas(pemasukan);
+            prioritas.pembagianUangMasuk();
+            pemasukanDao.tambahPemasukanAnggaran(prioritas.getPemasukan());
             System.out.println(pemasukan);
         } catch (Exception e) {
             e.printStackTrace();
