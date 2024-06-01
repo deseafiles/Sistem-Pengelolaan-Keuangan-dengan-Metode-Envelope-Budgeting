@@ -1,4 +1,5 @@
-package com.tubes.tugasbesarpbo;
+package tubespbo.Controller;
+
 import com.sun.tools.javac.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +12,7 @@ import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
+
 public class Login {
 
     public Login() {
@@ -46,7 +48,7 @@ public class Login {
         if (NamaField.getText().toString().matches("^[a-zA-Z]+$") && NIMField.getText().toString().matches("^[0-9]+$")){
             wrongLogin.setText("success!");
 
-           changeScene("Personal.fxml");
+            changeScene("Personal.fxml");
         } else if (NamaField.getText().toString().isEmpty()){
             wrongLogin.setText("Jangan dikosongin woy");
         }
