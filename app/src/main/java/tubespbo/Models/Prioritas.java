@@ -36,6 +36,10 @@ public class Prioritas {
         double totalSekunder = (persenSekunder / 100.0) * totalPemasukan;
         double totalTersier = (persenTersier / 100.0) * totalPemasukan;
 
+        pemasukan.setTotalAnggaranPokok(totalPokok);
+        pemasukan.setTotalAnggaranSekunder(totalSekunder);
+        pemasukan.setTotalAnggaranTersier(totalTersier);
+
         return totalPokok + totalSekunder + totalTersier;
     }
 
