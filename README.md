@@ -19,3 +19,4 @@ This is the final assignment for the OOP. This program serves as a financial tra
 
 [![JavaFX](https://img.shields.io/badge/javafx-%23FF0000.svg?style=for-the-badge&logo=javafx&logoColor=white)](https://openjfx.io/)
 [![Gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white)](https://gradle.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791.svg?style=for-the-badge&logo=PostgreSQL&logoColor=white)](https://www.postgresql.org/)
